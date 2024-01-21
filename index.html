@@ -10,8 +10,8 @@
   <body>
     <ol  class="container" style="list-style: none;">
      <li>
-    <img src="./ar_hand_prompt.png"    width="100"  height="100"  alt=""onclick="image(this.id)"   id="Wave"  />
-    <img src="./ar_hand_prompt.png"    width="100"  height="100"  alt=""onclick="image(this.id)"   id="Yes"  />
+    <img src="./ar_hand_prompt.png"    width="100"  height="100"  alt=""onclick="stop" onclick="image(this.id)"   id="Wave"  />
+    <img src="./ar_hand_prompt.png"    width="100"  height="100"  alt=""onclick="stop" onclick="image(this.id)"   id="Yes"  />
     <!-- <model-viewer> HTML element -->
     </li>
   </ol>
@@ -29,19 +29,21 @@
     </model-viewer>  
     <script src="script.js"></script>
     <script type="text/javascript">
-      function image(id) {
-        (() => {
-        const modelViewer = document.querySelector('#test');
+    function image(id) {
+  const modelViewer = document.querySelector('#test');
+  modelViewer.animationName = id;
+   modelViewer.play();
+	t=modelViewer.duration;
+	t=t*1000/2 ;// because duration is in second and time to play and rewind//
+	setTimeout(stop, t);
+}
+
+  function stop(){
+  const modelViewer = document.querySelector('#test');
+  modelViewer.pause();
+   }
       
-        self.setInterval(() => {
-          modelViewer.pause();
-          modelViewer.currentTime = 0;
-          modelViewer.animationName =id ;
-          modelViewer.play();
-         
-        }, 1500.0);
-      })();
-      }
+      
       </script>
     
 
