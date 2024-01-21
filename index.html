@@ -11,7 +11,7 @@
     <ol  class="container" style="list-style: none;">
      <li>
     <img src="./ar_hand_prompt.png"    width="100"  height="100"  alt=""onclick="image(this.id)"   id="Wave"  />
-    <img src="./ar_hand_prompt.png"    width="100"  height="100"  alt=""onclick="image(this.id)"   id="No"  />
+    <img src="./ar_hand_prompt.png"    width="100"  height="100"  alt=""onclick="image(this.id)"   id="Yes"  />
     <!-- <model-viewer> HTML element -->
     </li>
   </ol>
@@ -35,6 +35,7 @@
       
         self.setInterval(() => {
           modelViewer.animationName =id ;
+          modelViewer.play();
          
         }, 1500.0);
       })();
